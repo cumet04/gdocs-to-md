@@ -1,9 +1,10 @@
 import { convert } from './convert.js'
 
-document.getElementById("input-area").addEventListener("input", (e) => {
+
+document.getElementsByClassName("input-area")[0].addEventListener("input", (e) => {
   const input = e.target.firstChild;
   // htmlじゃなかったらハネるなど
   const md = convert(input);
 
-  document.getElementById("output-area").innerHTML = md;
+  document.getElementsByClassName("output-area")[0].innerHTML = md;
 })

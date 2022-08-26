@@ -35,17 +35,22 @@ function convertTag(el) {
         .filter((text) => text.length > 0)
         .join('') + '\n';
     case "H1":
-      return `# ${el.innerText}\n`;
     case "H2":
-      return `## ${el.innerText}\n`;
     case "H3":
-      return `### ${el.innerText}\n`;
     case "H4":
-      return `#### ${el.innerText}\n`;
     case "H5":
-      return `##### ${el.innerText}\n`;
     case "H6":
-      return `###### ${el.innerText}\n`;
+      // ヘッダの直後に空行を入れずにテキストを挟んだ場合、何故かそのテキスト（やノード）がヘッダタグの配下になることがある。その場合の対応
+      const child = el.children[0];
+      if (child.tagName === "SPAN" && child.children.length > 0) {
+        return Array.from(child.children).map((el) => convertTag(el))
+          .filter((text) => text.length > 0)
+          .join('');
+      }
+
+      // こちらは普通のヘッダの対応
+      const level = Number(el.tagName[1])
+      return `${"#".repeat(level)} ${el.innerText}\n`;
     default:
       return "";
   }

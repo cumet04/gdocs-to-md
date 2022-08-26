@@ -40,7 +40,7 @@ const cases = [
 `
   },
   {
-    // 何かしらんが、この場合に「大丈夫？」のテキストがh2のマークアップの下にpタグになる。そのケースの対応
+    // 何かしらんが、この場合に「大丈夫？」のテキストがh2のマークアップの下にpタグになる。ことがあるっぽい。そのケースの対応
     input: `<span id="docs-internal-guid-bc1e50ed-7fff-2cfc-841a-dad4aa8abdb0"><h2 dir="ltr" style="line-height:1.38;margin-top:18pt;margin-bottom:6pt;"><span style="font-size:16pt;font-family:Arial;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">見出し後に空行を入れずにテキストを入れると</span></h2><h2 dir="ltr" style="line-height:1.38;margin-top:18pt;margin-bottom:6pt;"><span style="font-weight:normal;" id="docs-internal-guid-dfcba987-7fff-679b-472c-f7202f713e86"><p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;"><span style="font-size: 11pt; font-family: Arial; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">大丈夫？</span></p><div><span style="font-size: 11pt; font-family: Arial; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;"><br></span></div></span></h2></span>`,
     want: `
 ## 見出し後に空行を入れずにテキストを入れると
